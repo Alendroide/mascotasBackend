@@ -1,0 +1,120 @@
+const { PrismaClient } = require('@prisma/client');
+const prismaAB = new PrismaClient();
+
+async function getAllAB(req,res){
+    try{
+        const allPetsAB = await prismaAB.pet.findMany();
+        res.status(200).json({status : 200, msg : "Pets searched successfully", data : allPetsAB});
+    }
+    catch(error){
+        console.error(error);
+        res.status(500).json({status : 500, msg: error.name});
+    }
+}
+
+async function createAB(req,res){
+    try{
+        const { name, race_id, gender_id } = req.body;
+        if(!name || !race_id || !gender_id) return res.status(400).json({status : 400, msg : "Missing data to create pet"});
+        const fileAB = req.file || { filename : 'pets/unknown.png'};
+
+        const petAB = await prismaAB.pet.create({
+            data : {
+                photo : fileAB.filename,
+                name,
+                race_id : parseInt(race_id),
+                gender_id : parseInt(gender_id)
+            }
+        })
+
+        res.status(200).json({status : 200, msg : "Pet created successfully", data : petAB});
+    }
+    catch(error){
+        console.error(error);
+        res.status(422).json({status : 422, msg : error.name});
+    }
+}
+
+async function adoptAB(req,res){
+    try{
+        const params = req.params;
+        const id = parseInt(params.id);
+        const petAB = await prismaAB.pet.findUnique({
+            where : { id }
+        })
+
+        if(!petAB) return res.status(404).json({status : 404, msg : 'Pet not found'});
+
+        const { sub } = req.user;
+
+        const adoptedPetAB = await prismaAB.pet.update({
+            where : { id },
+            data : {
+                user_id : sub
+            }
+        });
+
+        res.status(200).json({status : 200, msg : "Pet adopted successfully", data : adoptedPetAB});
+    }
+    catch(error){
+        console.error(error);
+        res.status(422).json({status : 422, msg : error.name});
+    }
+}
+
+async function updateAB(req,res){
+    try{
+        const params = req.params;
+        const id = parseInt(params.id)
+        
+        const petAB = await prismaAB.pet.findUnique({
+            where : { id }
+        })
+
+        if(!petAB) return res.status(404).json({status : 404, msg : 'Pet not found'});
+        
+        const { name, race_id, gender_id } = req.body;
+        const fileAB = req.file || undefined;
+
+        const updatedPetAB = await prismaAB.pet.update({
+            where : { id },
+            data : {
+                photo : fileAB?.filename || petAB.photo,
+                name : name || petAB.name,
+                race_id : parseInt(race_id) || petAB.race_id,
+                gender_id : parseInt(gender_id) || petAB.gender_id
+            }
+        })
+
+        res.status(200).json({status : 200, msg : "Pet updated successfully", data : updatedPetAB});
+    }
+    catch(error){
+        console.error(error);
+        res.status(422).json({status : 422, msg : error.name});
+    }
+}
+
+async function deleteAB(req,res){
+    try{
+        const params = req.params;
+        const id = parseInt(params.id)
+        
+        const petAB = await prismaAB.pet.findUnique({
+            where : { id }
+        })
+
+        if(!petAB) return res.status(404).json({status : 404, msg : 'Pet not found'});
+        
+        const deletedPet = await prismaAB.pet.delete({
+            where : { id }
+        })
+
+        res.status(200).json({status : 200, msg : "Pet deleted successfully", data : deletedPet});
+    }
+    catch(error){
+        console.error(error);
+        res.status(422).json({status : 422, msg : error.name});
+    }
+}
+
+module.exports = {getAll: getAllAB, create: createAB, update: updateAB, delete : deleteAB, adopt : adoptAB};
