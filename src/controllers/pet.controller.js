@@ -16,7 +16,8 @@ async function getAllAB(req,res){
 
 async function getByIdAB(req,res){
     try{
-        const {id} = req.params;
+        const params = req.params;
+        const id = parseInt(params.id);
         const petAB = await prismaAB.pet.findUnique({
             where : { id },
             include : {race : {include : {category : true}}, gender : true}
