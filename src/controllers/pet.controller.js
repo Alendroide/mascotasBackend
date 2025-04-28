@@ -3,7 +3,9 @@ const prismaAB = new PrismaClient();
 
 async function getAllAB(req,res){
     try{
-        const allPetsAB = await prismaAB.pet.findMany();
+        const allPetsAB = await prismaAB.pet.findMany({
+            include : {race : true}
+        });
         res.status(200).json({status : 200, msg : "Pets searched successfully", data : allPetsAB});
     }
     catch(error){
