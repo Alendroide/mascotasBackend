@@ -124,7 +124,7 @@ CREATE TABLE `pet` (
 
 LOCK TABLES `pet` WRITE;
 /*!40000 ALTER TABLE `pet` DISABLE KEYS */;
-INSERT INTO `pet` VALUES (1,'pets/photo-sm-1.svg',5,1,1,'karsten','stray'),(2,'pets/photo-sm-2.svg',6,2,1,'Alban','stray'),(3,'pets/photo-sm-3.svg',5,1,NULL,'Reigner','stray'),(4,'pets/photo-sm-4.svg',3,2,NULL,'Alex','stray'),(5,'pets/photo-sm-5.svg',7,2,NULL,'Ariana','stray'),(6,'pets/unknown.png',1,1,1,'Tony','stray');
+INSERT INTO `pet` VALUES (1,'pets/photo-sm-1.svg',5,1,NULL,'karsten','stray'),(2,'pets/photo-sm-2.svg',6,2,NULL,'Alban','stray'),(3,'pets/photo-sm-3.svg',5,1,NULL,'Reigner','stray'),(4,'pets/photo-sm-4.svg',3,2,NULL,'Alex','stray'),(5,'pets/photo-sm-5.svg',7,2,NULL,'Ariana','stray'),(6,'pets/unknown.png',1,1,1,'Tony','adopted');
 /*!40000 ALTER TABLE `pet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-28 11:29:07
+-- Dump completed on 2025-04-28 11:31:37
