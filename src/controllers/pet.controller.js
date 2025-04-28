@@ -14,6 +14,24 @@ async function getAllAB(req,res){
     }
 }
 
+async function getByIdAB(req,res){
+    try{
+        const {id} = req.params;
+        const petAB = await prismaAB.pet.findUnique({
+            where : { id },
+            include : {race : {include : {category : true}}, gender : true}
+        });
+
+        if(!petAB) return res.status(404).json({status: 404, msg: "Pet not found"});
+
+        res.status(200).json({status : 200, msg : "Pet searched successfully", data : petAB});
+    }
+    catch(error){
+        console.error(error);
+        res.status(500).json({status : 500, msg: error.name});
+    }
+}
+
 async function createAB(req,res){
     try{
         const { name, race_id, gender_id } = req.body;
@@ -119,4 +137,4 @@ async function deleteAB(req,res){
     }
 }
 
-module.exports = {getAll: getAllAB, create: createAB, update: updateAB, delete : deleteAB, adopt : adoptAB};
+module.exports = {getAll: getAllAB, create: createAB, update: updateAB, delete : deleteAB, adopt : adoptAB, getById : getByIdAB};

@@ -4,6 +4,7 @@ const tokenAB = require("../middlewares/token.middleware");
 const uploadAB = require('../middlewares/multer.middleware');
 
 routerAB.get('/pets/getAll',tokenAB,petControllerAB.getAll);
+routerAB.get('/pets/getById/:id',tokenAB,petControllerAB.getById);
 routerAB.post('/pets/create',tokenAB,uploadAB.single("photo"),petControllerAB.create);
 routerAB.put('/pets/adopt/:id',tokenAB,petControllerAB.adopt);
 routerAB.put('/pets/update/:id',tokenAB,uploadAB.single("photo"),petControllerAB.update);
