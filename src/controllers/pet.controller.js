@@ -100,7 +100,7 @@ async function updateAB(req,res){
         const updatedPetAB = await prismaAB.pet.update({
             where : { id },
             data : {
-                photo : fileAB?.filename || petAB.photo,
+                photo : `pets/${fileAB?.filename}` || petAB.photo,
                 name : name || petAB.name,
                 race_id : parseInt(race_id) || petAB.race_id,
                 gender_id : parseInt(gender_id) || petAB.gender_id
