@@ -48,7 +48,7 @@ async function createAB(req,res){
             }
         })
 
-        res.status(200).json({status : 200, msg : "Pet created successfully", data : petAB});
+        res.status(200).json({status : 201, msg : "Pet created successfully", data : petAB});
     }
     catch(error){
         console.error(error);
