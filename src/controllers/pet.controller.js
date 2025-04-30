@@ -37,11 +37,11 @@ async function createAB(req,res){
     try{
         const { name, race_id, gender_id } = req.body;
         if(!name || !race_id || !gender_id) return res.status(400).json({status : 400, msg : "Missing data to create pet"});
-        const fileAB = req.file || { filename : 'pets/unknown.png'};
+        const fileAB = req.file || { filename : 'unknown.png'};
 
         const petAB = await prismaAB.pet.create({
             data : {
-                photo : fileAB.filename,
+                photo : `pets/${fileAB.filename}`,
                 name,
                 race_id : parseInt(race_id),
                 gender_id : parseInt(gender_id)
