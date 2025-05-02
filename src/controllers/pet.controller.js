@@ -95,12 +95,12 @@ async function updateAB(req,res){
         if(!petAB) return res.status(404).json({status : 404, msg : 'Pet not found'});
         
         const { name, race_id, gender_id } = req.body;
-        const fileAB = req.file || undefined;
+        const fileAB = req.file.filename || petAB.photo;
 
         const updatedPetAB = await prismaAB.pet.update({
             where : { id },
             data : {
-                photo : `pets/${fileAB?.filename}` || petAB.photo,
+                photo : `pets/${fileAB}`,
                 name : name || petAB.name,
                 race_id : parseInt(race_id) || petAB.race_id,
                 gender_id : parseInt(gender_id) || petAB.gender_id
