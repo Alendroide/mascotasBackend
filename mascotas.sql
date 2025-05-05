@@ -115,7 +115,7 @@ CREATE TABLE `pet` (
   CONSTRAINT `pet_gender_id_fkey` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `pet_race_id_fkey` FOREIGN KEY (`race_id`) REFERENCES `race` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `pet_user_id_fkey` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `pet` (
 
 LOCK TABLES `pet` WRITE;
 /*!40000 ALTER TABLE `pet` DISABLE KEYS */;
-INSERT INTO `pet` VALUES (1,'pets/photo-sm-1.svg',5,1,NULL,'karsten','stray'),(2,'pets/photo-sm-2.svg',6,2,NULL,'Alban','stray'),(3,'pets/photo-sm-3.svg',5,1,NULL,'Reigner','stray'),(4,'pets/photo-sm-4.svg',3,2,NULL,'Alex','stray'),(5,'pets/photo-sm-5.svg',7,2,NULL,'Ariana','stray'),(6,'pets/unknown.png',1,1,1,'Tony','adopted');
+INSERT INTO `pet` VALUES (1,'pets/photo-sm-1.svg',5,1,3,'kransten','adopted'),(2,'pets/photo-sm-2.svg',6,2,2,'Alban','adopted'),(3,'pets/photo-sm-3.svg',5,1,3,'Reigner','adopted'),(4,'pets/photo-sm-4.svg',3,2,NULL,'Alex','stray'),(5,'pets/photo-sm-5.svg',7,2,NULL,'Ariana','stray');
 /*!40000 ALTER TABLE `pet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `user` (
   `password` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_key` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Alejandro Bonilla','alendroideyt@gmail.com','$2b$10$7ZkFVZ7got6PW.U3kZIjQ.CxPvAydD93PTh0ZcNUXM6MMSzyFp2iq');
+INSERT INTO `user` VALUES (1,'Alejandro Bonilla','alendroideyt@gmail.com','$2b$10$7ZkFVZ7got6PW.U3kZIjQ.CxPvAydD93PTh0ZcNUXM6MMSzyFp2iq'),(2,'Pepe Poio','pepe@gmail.com','$2a$10$xBR7oVz0.3ITVEIxKKi9.uTIOYFGmNGIxtp8pDtn1a0yV7qMWIVme'),(3,'Kesito Escalera','kesito@gmail.com','$2a$10$MPalrwLhl8xdmBpqL5zKmOJrX.2MTrEn2jBZv1lKio2.V8Y7i8kqO');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -191,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-28 11:31:37
+-- Dump completed on 2025-05-05 11:21:50
