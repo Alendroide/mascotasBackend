@@ -15,6 +15,16 @@ appAB.use('/public',expressAB.static('public/'));
 appAB.use(morganAB());
 appAB.use(corsAB());
 
+appAB.set('view engine','ejs');
+
+appAB.use('/docs/types',(req,res) => {
+    res.render("types");
+});
+
+appAB.use('/docs',(req,res) => {
+    res.render("docs");
+});
+
 const routersDirectoryAB = pathAB.join(__dirname,'src/routers');
 fsAB.readdirSync(routersDirectoryAB).map((file)=>{
     const routerAB = require(pathAB.join(routersDirectoryAB,file));

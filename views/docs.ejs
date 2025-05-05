@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend | Docs</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="icon" href="/public/pets/photo-sm-1.svg">
+</head>
+<body>
+    <div class="navbar" onclick="window.location.href = '/docs'">
+        <img class="logo" src="/public/pets/photo-sm-1.svg" alt="Logo" />
+        <h1>Best Friend | Docs</h1>
+        <div class="anchor-items">
+            <a href="/docs">Docs</a>
+            <a href="/docs/types">Types</a>
+        </div>
+    </div>
+    <div class="tablediv">
+        <h3>Pets</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>URL</td>
+                    <td>Método</td>
+                    <td>Headers</td>
+                    <td>Body</td>
+                    <td>Response</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/pets/getAll</td>
+                    <td>GET</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>NULL</td>
+                    <td>Pet[ ]</td>
+                </tr>
+                <tr>
+                    <td>/pets/getById/:id</td>
+                    <td>GET</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>NULL</td>
+                    <td>Pet</td>
+                </tr>
+                <tr>
+                    <td>/pets/create</td>
+                    <td>POST</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>Partial&lt;Pet&gt;</td>
+                    <td>Pet</td>
+                </tr>
+                <tr>
+                    <td>/pets/adopt/:id</td>
+                    <td>PUT</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>NULL</td>
+                    <td>Pet</td>
+                </tr>
+                <tr>
+                    <td>/pets/update/:id</td>
+                    <td>PUT</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>Partial&lt;Pet&gt;</td>
+                    <td>Pet</td>
+                </tr>
+                <tr>
+                    <td>/pets/delete/:id</td>
+                    <td>DELETE</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>NULL</td>
+                    <td>Pet</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tablediv">
+        <h3>Genders</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>URL</td>
+                    <td>Método</td>
+                    <td>Headers</td>
+                    <td>Body</td>
+                    <td>Response</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/genders/getAll</td>
+                    <td>GET</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>NULL</td>
+                    <td>Gender[ ]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tablediv">
+        <h3>Races</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>URL</td>
+                    <td>Método</td>
+                    <td>Headers</td>
+                    <td>Body</td>
+                    <td>Response</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/races/getAll</td>
+                    <td>GET</td>
+                    <td>Content-Type: application/json<br/>Authorization: Bearer {token}</td>
+                    <td>NULL</td>
+                    <td>Race[ ]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tablediv">
+        <h3>Users</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>URL</td>
+                    <td>Método</td>
+                    <td>Headers</td>
+                    <td>Body</td>
+                    <td>Response</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/auth/register</td>
+                    <td>POST</td>
+                    <td>Content-Type: application/json</td>
+                    <td>Register</td>
+                    <td>User</td>
+                </tr>
+                <tr>
+                    <td>/auth/login</td>
+                    <td>POST</td>
+                    <td>Content-Type: application/json</td>
+                    <td>Login</td>
+                    <td>Token</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

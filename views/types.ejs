@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend | Docs</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="icon" href="/public/pets/photo-sm-1.svg">
+</head>
+<body>
+    <div class="navbar" >
+        <img class="logo" src="/public/pets/photo-sm-1.svg" alt="Logo" />
+        <h1>Best Friend | Docs</h1>
+        <div class="anchor-items">
+            <a href="/docs">Docs</a>
+            <a href="/docs/types">Types</a>
+        </div>
+    </div>
+    <div style="display: flex;flex-wrap: wrap;">
+        <div class="typediv">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><b>Pet</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>status</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>photo</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>race_id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>gender_id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>user_id</td>
+                        <td>number | null</td>
+                    </tr>
+                    <tr>
+                        <td>gender</td>
+                        <td>Gender</td>
+                    </tr>
+                    <tr>
+                        <td>race</td>
+                        <td>Race</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+        <div class="typediv">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><b>Race</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>category_id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>Category</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+        <div class="typediv">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><b>Category</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+        
+        <div class="typediv">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><b>Gender</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+
+        <div class="typediv">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><b>User</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>fullname</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>password</td>
+                        <td>string</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="typediv">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><b>Token</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>data</td>
+                        <td>string</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    </div>
+</body>
+</html>
