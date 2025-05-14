@@ -141,4 +141,31 @@ async function deleteAB(req,res){
     }
 }
 
-module.exports = {getAll: getAllAB, create: createAB, update: updateAB, delete : deleteAB, adopt : adoptAB, getById : getByIdAB};
+async function adoptionReportAB(req,res){
+    try{
+        const adoptedAB = await prismaAB.pet.findMany({where : {user_id : {not : null}}, include : {race : {include : {category : true}}, gender : true}});
+        const notAdoptedAB = await prismaAB.pet.findMany({where : {user_id : null}, include : {race : {include : {category : true}}, gender : true}});
+        const numberOfAdopted = adoptedAB.length;
+        const numberOfNotAdopted = notAdoptedAB.length;
+
+        const totalAB = numberOfAdopted + numberOfNotAdopted;
+
+        const percentageAdopted = (numberOfAdopted / totalAB) * 100;
+        const percentageNotAdopted = (numberOfNotAdopted / totalAB) * 100;
+
+        res.status(200).json({status : 200, msg : "Adoption report", data : {
+            totalPets: totalAB,
+            totalAdopted: numberOfAdopted,
+            totalNotAdopted: numberOfNotAdopted,
+            percentageAdopted: percentageAdopted,
+            percentageNotAdopted: percentageNotAdopted,
+            adoptedPets: adoptedAB,
+            notAdoptedPets: notAdoptedAB
+        }});
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+module.exports = {getAll: getAllAB, create: createAB, update: updateAB, delete : deleteAB, adopt : adoptAB, getById : getByIdAB,adoptionReport: adoptionReportAB};
