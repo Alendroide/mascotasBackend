@@ -37,6 +37,8 @@ model pet {
   race race @relation(fields: [race_id],references: [id])
   gender gender @relation(fields: [gender_id],references: [id])
   user user? @relation(fields: [user_id],references: [id])
+  latitude Float
+  longitude Float
 }
 
 model race {
