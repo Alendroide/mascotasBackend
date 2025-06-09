@@ -96,7 +96,7 @@ async function updateAB(req,res){
 
         if(!petAB) return res.status(404).json({status : 404, msg : 'Pet not found'});
         
-        const { name, race_id, gender_id } = req.body;
+        const { name, race_id, gender_id, lat, lng } = req.body;
         const filenameAB = req.file?.filename;
         let fileAB;
         if(!filenameAB) fileAB = petAB.photo;
@@ -108,7 +108,9 @@ async function updateAB(req,res){
                 photo : `${fileAB}`,
                 name : name || petAB.name,
                 race_id : parseInt(race_id) || petAB.race_id,
-                gender_id : parseInt(gender_id) || petAB.gender_id
+                gender_id : parseInt(gender_id) || petAB.gender_id,
+                latitude: parseFloat(lat) || petAB.latitude,
+                longitude: parseFloat(lng) || petAB.longitude
             }
         })
 
