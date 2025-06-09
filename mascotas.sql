@@ -108,6 +108,8 @@ CREATE TABLE `pet` (
   `user_id` int DEFAULT NULL,
   `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('adopted','stray') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'stray',
+  `latitude` double NOT NULL DEFAULT '1.85174',
+  `longitude` double NOT NULL DEFAULT '-76.046878',
   PRIMARY KEY (`id`),
   KEY `pet_race_id_fkey` (`race_id`),
   KEY `pet_gender_id_fkey` (`gender_id`),
@@ -115,7 +117,7 @@ CREATE TABLE `pet` (
   CONSTRAINT `pet_gender_id_fkey` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `pet_race_id_fkey` FOREIGN KEY (`race_id`) REFERENCES `race` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `pet_user_id_fkey` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +126,7 @@ CREATE TABLE `pet` (
 
 LOCK TABLES `pet` WRITE;
 /*!40000 ALTER TABLE `pet` DISABLE KEYS */;
-INSERT INTO `pet` VALUES (1,'pets/photo-sm-1.svg',5,1,3,'kransten','adopted'),(2,'pets/photo-sm-2.svg',6,2,2,'Alban','adopted'),(3,'pets/photo-sm-3.svg',5,1,3,'Reigner','adopted'),(4,'pets/photo-sm-4.svg',3,2,NULL,'Alex','stray'),(5,'pets/photo-sm-5.svg',7,2,NULL,'Ariana','stray');
+INSERT INTO `pet` VALUES (1,'pets/photo-sm-1.svg',5,1,3,'kransten','adopted',1.851860832886015,-76.03731840848924),(2,'pets/photo-sm-2.svg',6,2,2,'Alban','adopted',23.36669816627796,116.729907989502),(3,'pets/photo-sm-3.svg',5,1,3,'Reigner','adopted',-34.57638181264601,-58.39473724365234),(4,'pets/photo-sm-4.svg',3,2,NULL,'Alex','stray',40.37123538214686,-3.638019561767579),(5,'pets/photo-sm-5.svg',7,2,NULL,'Ariana','stray',-25.7672278626963,28.22488009929657);
 /*!40000 ALTER TABLE `pet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-05 11:21:50
+-- Dump completed on 2025-06-09 10:41:44
