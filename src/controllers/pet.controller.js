@@ -45,8 +45,8 @@ async function createAB(req,res){
                 name,
                 race_id : parseInt(race_id),
                 gender_id : parseInt(gender_id),
-                latitude: lat,
-                longitude: lng
+                latitude: parseFloat(lat),
+                longitude: parseFloat(lng)
             }
         })
 
